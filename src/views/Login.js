@@ -13,7 +13,7 @@ const Login = () => {
       return;
     }
 
-    const { data } = await axios.post(`${process.env.REACT_APP_API}users/login`, {
+    const { data } = await axios.post(`https://nft-gallery-api.herokuapp.com/users/login`, {
       username,
       password,
     });

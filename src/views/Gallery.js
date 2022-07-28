@@ -13,7 +13,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API}items`);
+        const response = await axios.get(`https://nft-gallery-api.herokuapp.com/items`);
         setItems(response.data.data);
       } catch (error) {
         console.log(error.message);

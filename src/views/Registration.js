@@ -17,7 +17,7 @@ const Registration = () => {
     // 2. If not, proceed with registration
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API}users/register`,
+        `https://nft-gallery-api.herokuapp.com/users/register`,
         {
           username,
           email,

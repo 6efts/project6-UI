@@ -22,7 +22,7 @@ const Header = () => {
   useEffect(() => {
     const getUserById = async () => {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}users/${user._id}`
+        `https://nft-gallery-api.herokuapp.com/users/${user._id}`
       );
 
       if (data.error) {
