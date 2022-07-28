@@ -13,7 +13,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/items');
+        const response = await axios.get(`${process.env.REACT_APP_API}items`);
         setItems(response.data.data);
       } catch (error) {
         console.log(error.message);
@@ -45,7 +45,7 @@ const Gallery = () => {
                       src={item.images.high}
                       alt={item.name}
                     />
-                  
+
                     <p className="hover:text-[#ce9556]">{item.name}</p>
                     <p>${Number(item.price).toFixed(2)}</p>
                     <p>{item.artist}</p>

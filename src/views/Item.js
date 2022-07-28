@@ -24,14 +24,14 @@ const Item = () => {
     try {
       let response;
       if (id) {
-        response = await axios.put(`http://localhost:8000/api/items/${id}`, {
+        response = await axios.put(`${process.env.REACT_APP_API}items/${id}`, {
           name,
           price,
           images,
           artist,
         });
       } else {
-        response = await axios.post('http://localhost:8000/api/items', {
+        response = await axios.post(`${process.env.REACT_APP_API}items`, {
           items: [{ name, price, images, artist }],
         });
       }
@@ -58,7 +58,7 @@ const Item = () => {
   const onDelete = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:8000/api/items/${id}`
+        `${process.env.REACT_APP_API}items/${id}`
       );
       console.log(response.data);
       clearForm();
@@ -81,7 +81,7 @@ const Item = () => {
       const getById = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8000/api/items/${id}`
+            `${process.env.REACT_APP_API}items/${id}`
           );
 
           if (response.data.data) {

@@ -22,7 +22,7 @@ const Header = () => {
   useEffect(() => {
     const getUserById = async () => {
       const { data } = await axios.get(
-        `http://localhost:8000/api/users/${user._id}`
+        `${process.env.REACT_APP_API}users/${user._id}`
       );
 
       if (data.error) {

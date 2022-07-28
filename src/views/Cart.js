@@ -22,7 +22,7 @@ const Cart = () => {
       const items = JSON.parse(localStorage.getItem('cart'));
       const { _id } = JSON.parse(localStorage.getItem('user'));
 
-      await axios.post('http://localhost:8000/api/users/buy', {
+      await axios.post(`${process.env.REACT_APP_API}users/buy`, {
         id: _id,
         items,
       });
@@ -43,7 +43,7 @@ const Cart = () => {
     const getItemsByIds = async () => {
       try {
         const { data } = await axios.post(
-          'http://localhost:8000/api/items/multiple',
+          `${process.env.REACT_APP_API}items/multiple`,
           {
             ids: cart,
           }
