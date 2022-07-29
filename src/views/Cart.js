@@ -22,7 +22,7 @@ const Cart = () => {
       const items = JSON.parse(localStorage.getItem('cart'));
       const { _id } = JSON.parse(localStorage.getItem('user'));
 
-      await axios.post(`https://nft-gallery-api.herokuapp.com/users/buy`, {
+      await axios.post(`https://nft-gallery-api.herokuapp.com/api/users/buy`, {
         id: _id,
         items,
       });
@@ -43,7 +43,7 @@ const Cart = () => {
     const getItemsByIds = async () => {
       try {
         const { data } = await axios.post(
-          `https://nft-gallery-api.herokuapp.com/items/multiple`,
+          `https://nft-gallery-api.herokuapp.com/api/items/multiple`,
           {
             ids: cart,
           }

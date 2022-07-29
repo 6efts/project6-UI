@@ -24,14 +24,14 @@ const Item = () => {
     try {
       let response;
       if (id) {
-        response = await axios.put(`https://nft-gallery-api.herokuapp.com/items/${id}`, {
+        response = await axios.put(`https://nft-gallery-api.herokuapp.com/api/items/${id}`, {
           name,
           price,
           images,
           artist,
         });
       } else {
-        response = await axios.post(`https://nft-gallery-api.herokuapp.com/items`, {
+        response = await axios.post(`https://nft-gallery-api.herokuapp.com/api/items`, {
           items: [{ name, price, images, artist }],
         });
       }
@@ -58,7 +58,7 @@ const Item = () => {
   const onDelete = async () => {
     try {
       const response = await axios.delete(
-        `https://nft-gallery-api.herokuapp.com/items/${id}`
+        `https://nft-gallery-api.herokuapp.com/api/items/${id}`
       );
       console.log(response.data);
       clearForm();
@@ -81,7 +81,7 @@ const Item = () => {
       const getById = async () => {
         try {
           const response = await axios.get(
-            `https://nft-gallery-api.herokuapp.com/items/${id}`
+            `https://nft-gallery-api.herokuapp.com/api/items/${id}`
           );
 
           if (response.data.data) {
